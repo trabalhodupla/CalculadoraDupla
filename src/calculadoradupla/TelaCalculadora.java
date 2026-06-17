@@ -3,12 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package calculadoradupla;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+import javax.swing.JButton;
 
 /**
  *
  * @author LENOVO
  */
 public class TelaCalculadora extends javax.swing.JFrame {
+double primeiroValor;
+double segundoValor;
+String operacao;
 
     /**
      * Creates new form TelaCalculadora
@@ -79,6 +87,11 @@ public class TelaCalculadora extends javax.swing.JFrame {
         btnIgual.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnIgual.setText("=");
         btnIgual.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIgualActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLimpar.setText("C");
@@ -91,34 +104,74 @@ public class TelaCalculadora extends javax.swing.JFrame {
         btn8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn8.setText("8");
         btn8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn7.setText("7");
         btn7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn4.setText("4");
         btn4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn5.setText("5");
         btn5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn2.setText("2");
         btn2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         btn9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn9.setText("9");
         btn9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn6.setText("6");
         btn6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn1.setText("1");
         btn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
         btn3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn3.setText("3");
@@ -136,10 +189,20 @@ public class TelaCalculadora extends javax.swing.JFrame {
         btn0.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn0.setText("0");
         btn0.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
 
         btnSomar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnSomar.setText("+");
         btnSomar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSomar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSomarActionPerformed(evt);
+            }
+        });
 
         btnPonto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnPonto.setText(".");
@@ -266,12 +329,120 @@ public class TelaCalculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        // TODO add your handling code here:
+        txtVisor.setText(txtVisor.getText() + "3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btnPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPontoActionPerformed
+
+    private void btnSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomarActionPerformed
+        
+        try {
+            primeiroValor = Double.parseDouble(txtVisor.getText());
+            operacao = "soma";
+            txtVisor.setText("");
+        } catch (NumberFormatException e) {
+            txtVisor.setText("Erro");
+        }
+    }//GEN-LAST:event_btnSomarActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        txtVisor.setText(txtVisor.getText() + "9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+       try { 
+
+    segundoValor = Double.parseDouble(txtVisor.getText()); 
+
+ 
+
+    switch (operacao) { 
+
+        case "soma": 
+
+            txtVisor.setText(String.valueOf(primeiroValor + segundoValor)); 
+
+            break; 
+
+        case "subtracao": 
+
+            txtVisor.setText(String.valueOf(primeiroValor - segundoValor)); 
+
+            break; 
+
+        case "multiplicacao": 
+
+            txtVisor.setText(String.valueOf(primeiroValor * segundoValor)); 
+
+            break; 
+
+        case "divisao": 
+
+            if (segundoValor != 0) { 
+
+                txtVisor.setText(String.valueOf(primeiroValor / segundoValor)); 
+
+            } else { 
+
+                txtVisor.setText("Erro: Div por 0"); 
+
+            } 
+
+            break; 
+
+        case "porcentagem": 
+
+            // Calcula a porcentagem do segundo valor em relação ao primeiro 
+
+            txtVisor.setText(String.valueOf((primeiroValor * segundoValor) / 100)); 
+
+            break; 
+
+        default: 
+
+            break; 
+
+    } 
+
+} catch (Exception e) { 
+
+    txtVisor.setText("Erro"); 
+}
+    }//GEN-LAST:event_btnIgualActionPerformed
 
     /**
      * @param args the command line arguments
