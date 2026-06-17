@@ -373,7 +373,7 @@ String operacao;
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btnPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontoActionPerformed
-        // TODO add your handling code here:
+        txtVisor.setText(txtVisor.getText() + ".");
     }//GEN-LAST:event_btnPontoActionPerformed
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomarActionPerformed
