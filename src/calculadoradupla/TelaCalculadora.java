@@ -76,7 +76,7 @@ String operacao;
         setTitle("Calculador by Rubens & Ederson");
 
         txtVisor.setBackground(new java.awt.Color(255, 255, 255));
-        txtVisor.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        txtVisor.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         txtVisor.setForeground(new java.awt.Color(0, 0, 0));
         txtVisor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtVisor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -306,8 +306,8 @@ String operacao;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(txtVisor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(txtVisor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -428,25 +428,25 @@ String operacao;
 
     segundoValor = Double.parseDouble(txtVisor.getText()); 
 
- 
+ java.text.DecimalFormat df = new java.text.DecimalFormat("0.00");
 
     switch (operacao) { 
 
         case "soma": 
 
-            txtVisor.setText(String.valueOf(primeiroValor + segundoValor)); 
+            txtVisor.setText(df.format(primeiroValor + segundoValor)); 
 
             break; 
 
         case "subtracao": 
 
-            txtVisor.setText(String.valueOf(primeiroValor - segundoValor)); 
+            txtVisor.setText(df.format(primeiroValor - segundoValor)); 
 
             break; 
 
         case "multiplicacao": 
 
-            txtVisor.setText(String.valueOf(primeiroValor * segundoValor)); 
+            txtVisor.setText(df.format(primeiroValor * segundoValor)); 
 
             break; 
 
@@ -454,7 +454,7 @@ String operacao;
 
             if (segundoValor != 0) { 
 
-                txtVisor.setText(String.valueOf(primeiroValor / segundoValor)); 
+                txtVisor.setText(df.format(primeiroValor / segundoValor)); 
 
             } else { 
 
@@ -466,9 +466,9 @@ String operacao;
 
         case "porcentagem": 
 
-            // Calcula a porcentagem do segundo valor em relação ao primeiro 
+            
 
-            txtVisor.setText(String.valueOf((primeiroValor * segundoValor) / 100)); 
+            txtVisor.setText(df.format((primeiroValor * segundoValor) / 100)); 
 
             break; 
 
