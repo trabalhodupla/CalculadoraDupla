@@ -98,6 +98,11 @@ String operacao;
         btnDivisao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDivisao.setText("/");
         btnDivisao.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDivisao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivisaoActionPerformed(evt);
+            }
+        });
 
         btnIgual.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnIgual.setText("=");
@@ -424,64 +429,35 @@ String operacao;
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
-       try { 
-
-    segundoValor = Double.parseDouble(txtVisor.getText()); 
-
- java.text.DecimalFormat df = new java.text.DecimalFormat("0.00");
-
-    switch (operacao) { 
-
-        case "soma": 
-
-            txtVisor.setText(df.format(primeiroValor + segundoValor)); 
-
-            break; 
-
-        case "subtracao": 
-
-            txtVisor.setText(df.format(primeiroValor - segundoValor)); 
-
-            break; 
-
-        case "multiplicacao": 
-
-            txtVisor.setText(df.format(primeiroValor * segundoValor)); 
-
-            break; 
-
-        case "divisao": 
-
-            if (segundoValor != 0) { 
-
-                txtVisor.setText(df.format(primeiroValor / segundoValor)); 
-
-            } else { 
-
-                txtVisor.setText("Erro: Div por 0"); 
-
-            } 
-
-            break; 
-
-        case "porcentagem": 
-
-            
-
-            txtVisor.setText(df.format((primeiroValor * segundoValor) / 100)); 
-
-            break; 
-
-        default: 
-
-            break; 
-
-    } 
-
-} catch (Exception e) { 
-
-    txtVisor.setText("Erro"); 
-}
+       try {
+           segundoValor = Double.parseDouble(txtVisor.getText());
+            java.text.DecimalFormat df = new java.text.DecimalFormat("0.00");
+                switch (operacao) {
+                        case "soma":
+                            txtVisor.setText(df.format(primeiroValor + segundoValor));
+                            break;
+                        case "subtracao":
+                            txtVisor.setText(df.format(primeiroValor - segundoValor));
+                            break;
+                        case "multiplicacao":
+                            txtVisor.setText(df.format(primeiroValor * segundoValor));
+                            break;
+                        case "divisao":
+                            if (segundoValor != 0) {
+                            txtVisor.setText(df.format(primeiroValor / segundoValor));
+                            } else {
+                                txtVisor.setText("Erro: Div por 0"); 
+                            }
+                            break;
+                        case "porcentagem":         
+                            txtVisor.setText(df.format((primeiroValor * segundoValor) / 100));
+                            break;
+                        default: 
+                            break;
+                }
+            } catch (Exception e) {
+                 txtVisor.setText("Erro");
+            }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtracaoActionPerformed
@@ -503,12 +479,28 @@ operacao = "";        // TODO add your handling code here:
     }//GEN-LAST:event_txtVisorActionPerformed
 
     private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
-txtVisor.setText("");        // TODO add your handling code here:
+    txtVisor.setText("");
     }//GEN-LAST:event_btnApagarActionPerformed
 
     private void btnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacaoActionPerformed
-        // TODO add your handling code here:
+        try{
+            primeiroValor = Double.parseDouble(txtVisor.getText());
+            operacao = "multiplicacao";
+            txtVisor.setText("");        
+        }catch(NumberFormatException e){
+            txtVisor.setText("Erro");
+        }
     }//GEN-LAST:event_btnMultiplicacaoActionPerformed
+
+    private void btnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisaoActionPerformed
+        try{
+            primeiroValor = Double.parseDouble(txtVisor.getText());
+            operacao = "divisao";
+            txtVisor.setText("");
+        }catch(NumberFormatException e){
+            txtVisor.setText("Erro");
+        }
+    }//GEN-LAST:event_btnDivisaoActionPerformed
 
     /**
      * @param args the command line arguments
